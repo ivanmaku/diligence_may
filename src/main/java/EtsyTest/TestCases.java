@@ -17,8 +17,6 @@ import java.util.List;
 
 public class TestCases {
 
-    public class TestCase1 {
-
         @Test
         public void clothingAndShoesHoverOver() throws InterruptedException {
 
@@ -260,4 +258,3 @@ public class TestCases {
 
         }
     }
-}
