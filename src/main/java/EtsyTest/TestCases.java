@@ -121,14 +121,14 @@ public class TestCases {
             List<Double> actualPrices = new ArrayList<>();
             List<Double> expectedPrices = new ArrayList<>();
 
-//        for (WebElement eachPrice : toysPricesList) {
-//            actualPrices.add(eachPrice.getText());
-//            expectedPrices.add(eachPrice.getText());
-//        }
-            for (int i = 4; i < toysPricesList.size() - 1; i++) {
-                actualPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+        for (WebElement eachPrice : toysPricesList) {
+            actualPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
                 expectedPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
             }
+//            for (int i = 4; i < toysPricesList.size() - 1; i++) {
+//                actualPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+//                expectedPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+//            }
 
             Collections.sort(expectedPrices);
 
