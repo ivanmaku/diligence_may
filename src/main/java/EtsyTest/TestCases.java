@@ -106,6 +106,26 @@ public class TestCases {
 
         WebElement priceRange = driver.findElement(By.xpath("//a[contains(text(),\"$30 – $50\")]"));
         Assert.assertEquals(priceRange.isDisplayed(), true);
+            List<Double> actualPrices = new ArrayList<>();
+            List<Double> expectedPrices = new ArrayList<>();
+
+
+//        for (WebElement eachPrice : toysPricesList) {
+//            actualPrices.add(eachPrice.getText());
+//            expectedPrices.add(eachPrice.getText());
+//        }
+            for (int i = 4; i < toysPricesList.size() - 1; i++) {
+                actualPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+                expectedPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+        for (WebElement eachPrice : toysPricesList) {
+            actualPrices.add(Double.valueOf(eachPrice.getText().replace("$","").trim()));
+                expectedPrices.add(Double.valueOf(eachPrice.getText().replace("$","").trim()));
+
+            }
+//            for (int i = 4; i < toysPricesList.size() - 1; i++) {
+//                actualPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+//                expectedPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+//            }
 
         WebElement Relevanvy = driver.findElement(By.xpath("//div[@class=\"wt-show-lg wt-hide-xs\"]"));
         Relevanvy.click();
@@ -162,6 +182,15 @@ public class TestCases {
         //span[@class='wt-text-strikethrough']
 
         List<WebElement> allSaleItems = driver.findElements(By.xpath("//span[@class='wt-text-strikethrough']"));
+
+            for (int i = 0; i < allSaleItems.size(); i++) {
+                actualSaleItems.add(allSaleItems.get(i).getText().toLowerCase().trim());
+                expectedSaleItems.add(allSaleItems.get(i).getText().toLowerCase().trim());
+            }
+            Assert.assertEquals(actualSaleItems, expectedSaleItems);
+            System.out.println(actualSaleItems);
+            System.out.println(expectedSaleItems);
+
 
         List<String> actualSaleItems = new ArrayList<>();
         List<String> expectedSaleItems = new ArrayList<>();
@@ -264,5 +293,18 @@ public class TestCases {
         driver.get("https://www.etsy.com/");
         driver.manage().window().maximize();
         System.out.println("hussein");
+
+        }
+
+    @Test
+    public void testCart() {
+            WebDriverManager.chromedriver().setup();
+            WebDriver driver = new ChromeDriver();
+            driver.get("https://www.etsy.com/");
+            driver.manage().window().maximize();
+
+            WebElement clothesAndShoesButton = driver.findElement(By.xpath("//span[@id='catnav-primary-link-10923']"));
+            clothesAndShoesButton.click();
+
     }
 }
