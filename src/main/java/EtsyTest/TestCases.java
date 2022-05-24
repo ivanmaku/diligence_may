@@ -255,6 +255,16 @@ public class TestCases {
 
 
 
-
         }
+
+    @Test
+    public void testCart() {
+            WebDriverManager.chromedriver().setup();
+            WebDriver driver = new ChromeDriver();
+            driver.get("https://www.etsy.com/");
+            driver.manage().window().maximize();
+
+            WebElement clothesAndShoesButton = driver.findElement(By.xpath("//span[@id='catnav-primary-link-10923']"));
+            clothesAndShoesButton.click();
     }
+}
