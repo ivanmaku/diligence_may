@@ -248,13 +248,11 @@ public class TestCases {
             Actions actions = new Actions(driver);
             actions.moveToElement(hoverButton).perform();
             Thread.sleep(1000);
+            WebElement skirtsTab = driver.findElement(By.xpath("//a[@id='catnav-l4-10929']"));
+            skirtsTab.click();
 
-            WebElement menSection = driver.findElement(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/aside/ul/li[2]"));
-            actions.moveToElement(menSection).perform();
-            Thread.sleep(1000);
-
-
-
-
+            //WebElement menSection = driver.findElement(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/aside/ul/li[2]"));
+            //actions.moveToElement(menSection).perform();
+            //Thread.sleep(1000);
         }
     }
