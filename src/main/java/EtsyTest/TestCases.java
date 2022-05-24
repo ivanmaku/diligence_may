@@ -169,8 +169,8 @@ public class TestCases {
             for (int i = 0; i < allSaleItems.size(); i++) {
                 actualSaleItems.add(allSaleItems.get(i).getText().toLowerCase().trim());
                 expectedSaleItems.add(allSaleItems.get(i).getText().toLowerCase().trim());
-                Assert.assertEquals(actualSaleItems, expectedSaleItems);
             }
+            Assert.assertEquals(actualSaleItems, expectedSaleItems);
             System.out.println(actualSaleItems);
             System.out.println(expectedSaleItems);
 
