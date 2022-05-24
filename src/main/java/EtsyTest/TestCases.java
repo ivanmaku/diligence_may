@@ -118,12 +118,16 @@ public class TestCases {
 
             List<WebElement> toysPricesList = driver.findElements(By.xpath("//p[@class=\"wt-text-title-01\"]/span[2]"));
 
-            List<String> actualPrices = new ArrayList<>();
-            List<String> expectedPrices = new ArrayList<>();
+            List<Double> actualPrices = new ArrayList<>();
+            List<Double> expectedPrices = new ArrayList<>();
 
-            for (WebElement eachPrice : toysPricesList) {
-                actualPrices.add(eachPrice.getText());
-                expectedPrices.add(eachPrice.getText());
+//        for (WebElement eachPrice : toysPricesList) {
+//            actualPrices.add(eachPrice.getText());
+//            expectedPrices.add(eachPrice.getText());
+//        }
+            for (int i = 4; i < toysPricesList.size() - 1; i++) {
+                actualPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
+                expectedPrices.add(Double.valueOf(toysPricesList.get(i).getText().replace("$","").trim()));
             }
 
             Collections.sort(expectedPrices);
