@@ -263,5 +263,6 @@ public class TestCases {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.etsy.com/");
         driver.manage().window().maximize();
+        System.out.println("hussein");
     }
 }
