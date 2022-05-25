@@ -257,13 +257,23 @@ public class TestCases {
 
     @Test
 
-    public void cart() {
+    public void cart() throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.etsy.com/");
         driver.manage().window().maximize();
-        System.out.println("hussein");
-        System.out.println("hussein2");
+
+        WebElement hoverButton = driver.findElement(By.id("catnav-primary-link-10923"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(hoverButton).perform();
+        Thread.sleep(1000);
+
+        WebElement menSection = driver.findElement(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/aside/ul/li[2]"));
+        actions.moveToElement(menSection).perform();
+        Thread.sleep(1000);
+
+
+
     }
 }
