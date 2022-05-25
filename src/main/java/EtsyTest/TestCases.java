@@ -273,6 +273,15 @@ public class TestCases {
         actions.moveToElement(menSection).perform();
         Thread.sleep(1000);
 
+        WebElement Shirts=driver.findElement(By.xpath("//a[@id='catnav-l4-10938']"));
+        Shirts.click();
+
+        WebElement item=driver.findElement(By.xpath("/html/body/div[5]/div/div[1]/div/div[3]/div[2]/div[2]/div[9]/div/div/div/ul/li[2]/div/div/a/div[1]/div/div/div/div/div/img"));
+        item.click();
+
+        //WebElement color=driver.findElement(By.xpath("//*[@id=\"variation-selector-0\"]/option[2]"));
+        //color.click();
+
 
 
     }
