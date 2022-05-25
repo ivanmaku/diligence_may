@@ -249,9 +249,27 @@ public class TestCases {
         actions.moveToElement(hoverButton).perform();
         Thread.sleep(1000);
 
-        WebElement menSection = driver.findElement(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/aside/ul/li[2]"));
-        actions.moveToElement(menSection).perform();
+//        WebElement menSection = driver.findElement(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/aside/ul/li[2]"));
+//        actions.moveToElement(menSection).perform();
+//        Thread.sleep(1000);
+
+        WebElement skirtsButton = driver.findElement(By.partialLinkText("Skirts"));
+        skirtsButton.click();
         Thread.sleep(1000);
+
+        List<WebElement> allItems = driver.findElements(By.xpath("//*[@id='content']//div[@data-appears-component-name='category_listings_group']"));
+        List<String> items = new ArrayList<>();
+
+        for (WebElement item : allItems) {
+
+            items.add(item.getText());
+            //System.out.println("\n" + item.getText() + "\n");
+            Assert.assertTrue(item.getText().toLowerCase().contains("skirt")); // fails, meaning not all items are skirts
+
+        }
+
+
+
 
     }
 
