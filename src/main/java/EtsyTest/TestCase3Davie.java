@@ -18,10 +18,6 @@ public class TestCase3Davie extends TestBase {
         actions.moveToElement(hoverButton).perform();
         Thread.sleep(1000);
 
-//        WebElement menSection = driver.findElement(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/aside/ul/li[2]"));
-//        actions.moveToElement(menSection).perform();
-//        Thread.sleep(1000);
-
         WebElement skirtsButton = driver.findElement(By.partialLinkText("Skirts"));
         skirtsButton.click();
         Thread.sleep(1000);

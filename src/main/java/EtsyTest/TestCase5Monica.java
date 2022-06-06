@@ -12,9 +12,7 @@ import java.util.List;
 public class TestCase5Monica extends TestBase{
     @Test
     public void PriceHighToLowSorting() throws InterruptedException {
-
         driver.navigate().to("https://www.etsy.com/?ref=lgo");
-
         WebElement clothingAndShoes = driver.findElement(By.xpath("//a[@href=\"/c/clothing-and-shoes?ref=catnav-10923\"]"));
         Thread.sleep(1500);
         clothingAndShoes.click();
@@ -40,8 +38,6 @@ public class TestCase5Monica extends TestBase{
         WebElement Relevanvy = driver.findElement(By.xpath("//div[@class=\"wt-show-lg wt-hide-xs\"]"));
         Relevanvy.click();
         Thread.sleep(1500);
-//    Select select =new Select(Relevanvy);
-//    select.selectByIndex(1);
 
         WebElement highestPrice = driver.findElement(By.xpath("//a[contains(text(),\" Highest Price\")]"));
         highestPrice.click();
@@ -55,14 +51,10 @@ public class TestCase5Monica extends TestBase{
             actualPrices.add(eachPrice.getText());
             expectedPrices.add(eachPrice.getText());
         }
-
         Collections.sort(expectedPrices);
-
         Collections.reverse(expectedPrices);
         System.out.println(actualPrices);
         System.out.println(expectedPrices);
-
         Assert.assertEquals(actualPrices, expectedPrices);
-
     }
 }

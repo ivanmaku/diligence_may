@@ -17,9 +17,6 @@ public class TestCase7Ivan extends TestBase{
         actions.moveToElement(hoverButton).perform();
         Thread.sleep(1000);
 
-
-        List<WebElement> genderAndOtherType = driver.findElements(By.xpath("/html/body/div[3]/div[2]/div/div[2]/div/div/aside/ul/li/span"));
-
         // WOMEN
         WebElement womenClothingText = driver.findElement(By.xpath("//*[@id=\"catnav-l3-10925\"]"));
         WebElement womenShoesText = driver.findElement(By.xpath("//*[@id=\"catnav-l3-10933\"]"));
@@ -31,7 +28,6 @@ public class TestCase7Ivan extends TestBase{
             Assert.assertTrue(cloth.isDisplayed());
             Assert.assertTrue(cloth.getAttribute("href").contains("womens-clothing"));
         }
-
         List<WebElement> womenShoes = driver.findElements(By.xpath("//*[@id=\"desktop-category-nav\"]/div[2]/div/div[2]/div/div/div/section[1]/div/ul[2]/li[1]/ul/li/a"));
         for (WebElement shoe : womenShoes) {
             Assert.assertTrue(shoe.isDisplayed());
