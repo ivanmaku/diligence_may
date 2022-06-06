@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestCase3Davie extends TestBase {
+public class TestCase3Hussien extends TestBase {
     @Test
     public void testSkirt() throws InterruptedException {
 
