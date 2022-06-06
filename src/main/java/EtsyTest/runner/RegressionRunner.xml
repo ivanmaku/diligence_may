@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="TestNG Regression Runner">
+
+    <test name="Select Class tests">
+        <classes>
+            <class name="EtsyTest.TestCase1Candan"></class>
+            <class name="EtsyTest.TestCase2Seden"></class>
+            <class name="EtsyTest.TestCase3Hussien"></class>
+            <class name="EtsyTest.TestCase4Ahmad"></class>
+            <class name="EtsyTest.TestCase5Monica"></class>
+            <class name="EtsyTest.TestCase7Ivan"></class>
+
+
+
+        </classes>
+
+    </test>
+
+
+</suite>
