@@ -1,7 +1,10 @@
 package EtsyTest;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,37 +13,30 @@ import java.util.List;
 
 public class TestCase1Candan extends TestBase{
 
-    @Test
-    public void validateOnSaleBox() throws InterruptedException {
+        @Test
+        public void validateOnSaleBox() throws InterruptedException {
 
-        WebElement clothesAndShoesButton = driver.findElement(By.xpath("//span[@id='catnav-primary-link-10923']"));
-        clothesAndShoesButton.click();
-        Thread.sleep(5000);
-        WebElement allFiltersButton = driver.findElement(By.xpath("//span[@class='wt-hide-xs wt-show-md filter-expander']"));
-        allFiltersButton.click();
+            WebDriverManager.chromedriver().setup();
+            WebDriver driver = new ChromeDriver();
+            driver.get("https://www.etsy.com/");
+            driver.manage().window().maximize();
 
-        Thread.sleep(2000);
-        WebElement onSaleBox = driver.findElement(By.xpath("//label[@for=\"special-offers-on-sale\"]"));
-        onSaleBox.click();
-        Thread.sleep(2000);
+            WebElement clothesAndShoesButton = driver.findElement(By.xpath("//span[@id='catnav-primary-link-10923']"));
+            clothesAndShoesButton.click();
+            Thread.sleep(5000);
+            WebElement allFiltersButton = driver.findElement(By.xpath("//span[@class='wt-hide-xs wt-show-md filter-expander']"));
+            allFiltersButton.click();
 
-        WebElement applyButton = driver.findElement(By.xpath("//*[@id='search-filters-overlay']/div/div/div[2]/button[2]"));
-        applyButton.click();
+            Thread.sleep(2000);
+            WebElement onSaleBox = driver.findElement(By.xpath("//label[@for=\"special-offers-on-sale\"]"));
+            onSaleBox.click();
+            Thread.sleep(2000);
 
-        //span[@class='wt-text-strikethrough']
+            WebElement applyButton = driver.findElement(By.xpath("//*[@id='search-filters-overlay']/div/div/div[2]/button[2]"));
+            applyButton.click();
 
-        List<WebElement> allSaleItems = driver.findElements(By.xpath("//span[@class='wt-text-strikethrough']"));
+            WebElement saleButton = driver.findElement(By.xpath("//a[contains(text(), 'On sale')]"));
 
-        List<String> actualSaleItems = new ArrayList<>();
-        List<String> expectedSaleItems = new ArrayList<>();
-
-        for (int i = 0; i < allSaleItems.size(); i++) {
-            actualSaleItems.add(allSaleItems.get(i).getText().toLowerCase().trim());
-            expectedSaleItems.add(allSaleItems.get(i).getText().toLowerCase().trim());
-            Assert.assertEquals(actualSaleItems, expectedSaleItems);
+            Assert.assertTrue(saleButton.isDisplayed());
         }
-        System.out.println(actualSaleItems);
-        System.out.println(expectedSaleItems);
-
     }
-}
