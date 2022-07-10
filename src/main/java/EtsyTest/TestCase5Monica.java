@@ -23,7 +23,6 @@ public class TestCase5Monica extends TestBase{
         minimalist.click();
 
         WebElement nextButton = driver.findElement(By.linkText("Next"));
-
 //        for (int i = 0; ; i++) {
 //            nextButton.click();
 //            if (nextButton.getAttribute("class").contains("is-disabled"))
